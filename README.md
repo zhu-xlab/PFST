@@ -48,7 +48,9 @@ data_root = '/path/to/your_datasets/Inria'
 data_root = '/path/to/your_datasets/SeasonNet'
 ```
 
-## Train the PFST Model.
+## Train the PFST model (Optional)
+If you want to train the model by youself instead of using our released checkpoints:
+
 1. For the adaptation between two ISPRS datasets:
 ```shell
 python tools/train.py configs/pfst/pfst_pots_irrg2vaih_irrg_deeplabv3plus_r50-d8.py
@@ -64,3 +66,21 @@ python tools/train.py configs/pfst/pfst_inria_da_deeplabv3plus_r50-d8.py
 ```shell
 python tools/train.py configs/pfst/pfst_season_net_sp2fa_deeplabv3plus_r50-d8.py
 ```
+
+## Evaluation
+### Potsdam IRRG to Vaihingen IRRG
+1. A sample checkpoint for Potsdam IRRG to Vaihingen IRRG setting is provided at https://drive.google.com/file/d/1YyLkD-CgZrGVNJpEhArLg2z0iiuEXvL3/view?usp=share_link: 
+
+2. If you are using the provided checkpoint, place it under the folder work_dirs/pfst_pots_irrg2vaih_irrg_deeplabv3plus_r50-d8/, and then:
+```shell
+python tools/test.py configs/pfst/pfst_pots_irrg2vaih_irrg_deeplabv3plus_r50-d8.py work_dirs/pfst_pots_irrg2vaih_irrg_deeplabv3plus_r50-d8/pfst_pots_irrg2vaih_irrg.pth --work-dir work_dirs/pfst_pots_irrg2vaih_irrg_deeplabv3plus_r50-d8/ --revise_checkpoint_key=True --eval='mIoU'
+```
+
+3. If you are using the checkpoint trained locally, simply replace the path to the checkpoint.
+
+Evaluation on the other settings can be conducted with the same manner, yet one will need to train their models locally.
+
+## Acknowledgement
+https://github.com/lhoyer/DAFormer
+
+https://github.com/open-mmlab/mmsegmentation
