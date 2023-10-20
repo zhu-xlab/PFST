@@ -81,6 +81,8 @@ python tools/test.py configs/pfst/pfst_pots_irrg2vaih_irrg_deeplabv3plus_r50-d8.
 Evaluation on the other settings can be conducted with the same manner, yet one will need to train their models locally.
 
 ## Acknowledgement
+https://github.com/EarthNets
+
 https://github.com/lhoyer/DAFormer
 
 https://github.com/open-mmlab/mmsegmentation
