@@ -13,7 +13,7 @@ pip install -e .
 ```
 To set up the environment smoothly, we provide the version information of some important packages:
 ```shell
-torch=1.13.1+cu117
+torch==1.13.1+cu117
 torchdata==0.5.1
 torchvision==0.14.1
 mmcv==1.7.1
